@@ -250,3 +250,57 @@ footer            бренд + copyright + соцсети | Company ×5 | Suppor
 Зафиксировано `feat: add html skeleton` (index.html, icon-send.svg,
 icon-arrow-right-white.svg). Стилей пока нет: серый фон кнопки формы — это
 браузерный UA-стиль, он уйдёт на этапе базового CSS.
+
+## 5. Создать базовый CSS-фундамент
+
+Написан `css/style.css` — общая основа проекта без layout и стилизации
+конкретных секций (эти этапы идут дальше).
+
+### Шрифты
+
+- Три правила `@font-face` для Inter (400 Regular, 500 Medium, 600 Semi
+  Bold) с локальными woff2 из `fonts/`, `font-display: swap` — текст виден
+  до окончания загрузки шрифта.
+
+### Переменные `:root`
+
+- палитра: Primary, Secondary, Info; шкалы Primary T1–T5 и Shade S1–S5;
+  действия Warning / Error / Success; нейтральные Black / D_Grey / Grey /
+  L_Grey / Grey_Blue / Silver / White (значения из раздела 1);
+- типографика Inter: заранее объявлены размеры и линейки h1–h4 и body 1–4
+  (в px), веса 400/500/600;
+- layout: `--container-width: 1152px`, `--container-gutter: 24px` (поля
+  144px на 1440 задаются через центрирование контейнера);
+- шкала отступов по сетке 8pt (`--space-1…16`);
+- радиусы (`--radius-sm/md/lg/full`);
+- тени `--shadow-1…5` (цвет #ABBED1, интерпретация «2px 60%» → сдвиг 1–8px,
+  размытие 2–16px, прозрачность соответствует макету; при первой реальной
+  стилизации значения будут сверены с Effects в Figma).
+
+### Reset и база
+
+- `box-sizing: border-box` для всех элементов;
+- обнуление margin/padding, `list-style: none`;
+- `img { display: block; max-width: 100%; height: auto }`;
+- `a` — наследует цвет, без подчёркивания;
+- `button, input { font: inherit; color: inherit }`, у `button`
+  `appearance: none; background: none; border: none; cursor: pointer` —
+  это убирает серый UA-фон кнопки формы и стандартный вид кнопок;
+- `html { scroll-behavior: smooth }` с отключением для пользователей,
+  предпочитающих уменьшение движения (`@media (prefers-reduced-motion)`).
+
+### Контейнер и утилиты
+
+- `.container` — `max-width: 1152px`, центрируется, `padding-inline: 24px`;
+- `.visually-hidden` — скрытие видимого, но доступного элемента; кроме
+  устаревшего `clip` добавлен современный `clip-path: inset(50%)`.
+
+### Подключение
+
+В `index.html` добавлен `link[rel=stylesheet]` →
+`css/style.css`.
+
+### Коммит
+
+Зафиксировано `style: add base styles and variables` (css/style.css,
+index.html).
