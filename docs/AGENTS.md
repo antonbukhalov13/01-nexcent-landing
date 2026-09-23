@@ -224,6 +224,11 @@ Figma является основным источником визуальны�
 
 AI получает данные из Figma через Figma MCP.
 
+Если Figma MCP недоступен, сверка ведётся по локальным экспортам
+макета в `docs/reference-images/` (PNG scale 2): `full/landing-page.png`,
+`mobile/mobile.png`, все секции в `sections/`, Style Guide — в `style-guide/`
+(colors, buttons, typography, effects, icons, guide).
+
 Не придумывать собственный дизайн,
 если соответствующий вариант уже представлен в макете.
 
