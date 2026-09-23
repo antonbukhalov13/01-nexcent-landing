@@ -132,3 +132,58 @@ Thumbnail — детально разбирается на этапе адапт
 Мобильная версия существует в макете отдельно; при её реализации — чистый
 CSS-гамбургер без JavaScript, hamburger-меню и вертикальная схема секций
 разбираются на этапе адаптива.
+
+## 3. Подготовить assets
+
+Все ассеты собраны локально в проекте, внешних CDN нет — сайт полностью
+самодостаточен. Источник выгрузки — фрейм Landing Page (5:573) на странице
+Design (0:1).
+
+### Шрифты — fonts/
+
+- `Inter-Regular.woff2`, `Inter-Medium.woff2`, `Inter-SemiBold.woff2` —
+  скачаны в woff2 с официального релиза Inter (github.com/rsms/inter), формат
+  woff2 выбран осознанно: современный сжатый веб-формат, поддерживается всеми
+  целевыми браузерами.
+- Подключение через `@font-face` на шаге базового CSS; веса соответствуют
+  макету (Regular / Medium / Semi Bold), локальные шрифты для Type 1–4.
+
+### Растровые изображения — img/
+
+- `hero.png` — иллюстрация Hero, экспорт через Figma MCP с scale 2 (782×814);
+- `unlock.png` (442×433), `calender.png` (442×434) — иллюстрации секций;
+- `customer.jpg` (358×358) — фото клиента; в макете контейнер 326×326,
+  экспорт захватил тень/рамку — при вёрстке размер задаётся CSS;
+- `blog-1.png` … `blog-3.png` (368×286) — изображения карточек
+  Community Updates;
+- `favicon.png` (64×64) — иконка Nexcent, экспортирована как PNG и
+  нормализована в квадрат 64×64: прозрачный холст, логотип вписан по центру
+  без искажений.
+
+### Векторные логотипы — img/logos/
+
+- `logo.svg` — логотип шапки (иконка + слово Nexcent), экспорт целого узла
+  Header (не Vector, чтобы не «съехала» центровка);
+- `client-1.svg` … `client-7.svg` — логотипы компаний секции Clients
+  (слева направо, 7 шт);
+- `customer-1.svg` … `customer-6.svg` — логотипы партнёров в Customer's
+  (6 шт).
+
+### Иконки — img/icons/
+
+- `icon-community-membership.svg`, `icon-community-associations.svg`,
+  `icon-community-clubs.svg` — три карточки Community;
+- `icon-achievement-members.svg`, `icon-achievement-clubs.svg`,
+  `icon-achievement-bookings.svg`, `icon-achievement-payments.svg` —
+  статистика Achievements;
+- `icon-arrow-right.svg` — стрелка ссылок;
+- `icon-social-instagram.svg`, `icon-social-dribbble.svg`,
+  `icon-social-twitter.svg`, `icon-social-youtube.svg` — соцсети футера
+  (переименованы из social-1..4 по порядку в макете).
+
+### Проверка и коммит
+
+Итоговая раскладка: `fonts/` + `img/` + `img/logos/` + `img/icons/`. Файлы
+растровые экспортированы в PNG/JPG (как в макете), ничего лишнего в staging
+не попало. Зафиксировано коммитом `chore: add fonts and images` (только
+`fonts/` и `img/`).
