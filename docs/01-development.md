@@ -187,3 +187,66 @@ Design (0:1).
 растровые экспортированы в PNG/JPG (как в макете), ничего лишнего в staging
 не попало. Зафиксировано коммитом `chore: add fonts and images` (только
 `fonts/` и `img/`).
+
+## 4. Создать HTML-скелет
+
+Скелет написан на чистом HTML без CSS — страница должна оставаться понятной
+при отключённых стилях. Контент сверен с макетом Landing Page (5:573).
+
+### Структура страницы
+
+```
+body
+├── header        логотип + nav (Home, Service, Feature, Product,
+│                 Testimonial, FAQ) + Login / Sign up
+└── main
+    ├── hero      h1 «Lessons and insights from 8 years» + Register
+    │             + иллюстрация + точки карусели (3)
+    ├── clients   h2 + 7 логотипов (client-1..7)
+    ├── community h2 + 3 карточки (Membership / National / Clubs)
+    ├── unlock    иллюстрация + h2 + текст + Learn More
+    ├── achievements  h2 + сетка статистики 2×2
+    ├── calender  иллюстрация + h2 + текст + Learn More
+    ├── customers фото + blockquote-отзыв + 6 логотипов
+    │             + «Meet all customers»
+    ├── updates   h2 + 3 карточки блога (blog-1..3)
+    └── cta       h2 + кнопка Get a Demo (белая стрелка 16×16)
+footer            бренд + copyright + соцсети | Company ×5 | Support ×5
+                  | форма подписки (email + кнопка-самолётик)
+```
+
+### Семантика и контент
+
+- Секции оформлены через `<section>` с якорями: `#home`, `#service`,
+  `#feature`, `#product`, `#testimonial`, `#faq` (пункты меню ведут на них);
+- иерархия заголовков: один `h1` (hero), секции — `h2`, карточки — `h3`;
+- карточки Community и блог — через `article` (содержимое повторяющихся
+  блоков), отзыв — через `blockquote`;
+- списки логотипов (`clients`, `customers`, соцсети, ссылки футера) — `ul`;
+- навигация шапки и футера — `nav` с `aria-label`;
+- точки карусели hero — кнопки с `role="tablist"`, `role="tab"` и
+  `aria-selected` (первая активна, `.hero__dot--active`);
+- изображения с `alt` (декоративные иконки — пустой `alt=""`) и
+  `width`/`height` из макета (защита от CLS);
+- форма подписки: `<label class="visually-hidden">` + `input[type=email]`
+  с `placeholder="Your email address"` + кнопка-стрелка (самолётик);
+- кнопка CTA Get a Demo содержит белую стрелку `icon-arrow-right-white.svg`
+  (16×16, это отдельный SVG-файл, добавлен в img/icons/);
+- дополнительные иконки: `icon-send.svg` (самолётик формы, белый под
+  тёмный футер).
+- контент-тексты взяты из макета (цитата Customer's, тексты Unlock/Calender,
+  списки футера Company/Support уточнены по Figma).
+
+### Особенности футера
+
+- copyright из двух строк: `Copyright © 2020 Nexcent ltd.` + `All rights
+  reserved`;
+- Company: About us, Blog, Contact us, Pricing, Testimonials;
+- Support: Help center, Terms of service, Legal, Privacy Policy, Status;
+- социальные иконки белые — видимы после стилизации футера (тёмный фон).
+
+### Коммит
+
+Зафиксировано `feat: add html skeleton` (index.html, icon-send.svg,
+icon-arrow-right-white.svg). Стилей пока нет: серый фон кнопки формы — это
+браузерный UA-стиль, он уйдёт на этапе базового CSS.
