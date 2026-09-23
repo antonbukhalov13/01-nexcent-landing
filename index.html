@@ -3,9 +3,257 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>Nexcent — Manage your entire community in a single system</title>
+   <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
-   
+   <header class="header">
+      <div class="container header__inner">
+         <a href="#" class="logo" aria-label="Nexcent home">
+            <img src="img/logos/logo.svg" alt="Nexcent" width="154" height="24">
+         </a>
+         <nav class="nav" aria-label="Main navigation">
+            <ul class="nav__list">
+               <li><a href="#home" class="nav__link">Home</a></li>
+               <li><a href="#service" class="nav__link">Service</a></li>
+               <li><a href="#feature" class="nav__link">Feature</a></li>
+               <li><a href="#product" class="nav__link">Product</a></li>
+               <li><a href="#testimonial" class="nav__link">Testimonial</a></li>
+               <li><a href="#faq" class="nav__link">FAQ</a></li>
+            </ul>
+         </nav>
+         <div class="header__actions">
+            <a href="#" class="btn btn--ghost">Login</a>
+            <a href="#" class="btn btn--primary">Sign up</a>
+         </div>
+      </div>
+   </header>
+
+   <main>
+      <section id="home" class="hero">
+         <div class="container hero__inner">
+            <div class="hero__content">
+               <h1 class="hero__title">Lessons and insights <span class="hero__title-accent">from 8 years</span></h1>
+               <p class="hero__text">Where to grow your business as a photographer: site or social media?</p>
+               <a href="#" class="btn btn--primary">Register</a>
+            </div>
+            <img src="img/hero.png" alt="Illustration of a person operating a digital growth dashboard" class="hero__image" width="391" height="407">
+         </div>
+         <div class="hero__dots" role="tablist" aria-label="Hero slides">
+            <button type="button" class="hero__dot hero__dot--active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+         </div>
+      </section>
+
+      <section id="product" class="clients">
+         <div class="container">
+            <h2 class="section-title">Our Clients</h2>
+            <p class="section-subtitle">We have been working with some Fortune 500+ clients</p>
+            <ul class="clients__list" aria-label="Our clients">
+               <li><img src="img/logos/client-1.svg" alt="Client 1" width="48" height="48"></li>
+               <li><img src="img/logos/client-2.svg" alt="Client 2" width="48" height="48"></li>
+               <li><img src="img/logos/client-3.svg" alt="Client 3" width="48" height="48"></li>
+               <li><img src="img/logos/client-4.svg" alt="Client 4" width="48" height="48"></li>
+               <li><img src="img/logos/client-5.svg" alt="Client 5" width="48" height="48"></li>
+               <li><img src="img/logos/client-6.svg" alt="Client 6" width="48" height="48"></li>
+               <li><img src="img/logos/client-7.svg" alt="Client 7" width="48" height="48"></li>
+            </ul>
+         </div>
+      </section>
+
+      <section id="service" class="community">
+         <div class="container">
+            <h2 class="section-title">Manage your entire community in a single system</h2>
+            <p class="section-subtitle">Who is Nexcent suitable for?</p>
+            <ul class="community__cards">
+               <li>
+                  <article class="card">
+                     <img src="img/icons/icon-community-membership.svg" alt="" class="card__icon" width="56" height="56">
+                     <h3 class="card__title">Membership Organisations</h3>
+                     <p class="card__text">Our membership management software provides full automation of membership renewals and payments</p>
+                  </article>
+               </li>
+               <li>
+                  <article class="card">
+                     <img src="img/icons/icon-community-associations.svg" alt="" class="card__icon" width="56" height="56">
+                     <h3 class="card__title">National Associations</h3>
+                     <p class="card__text">Our membership management software provides full automation of membership renewals and payments</p>
+                  </article>
+               </li>
+               <li>
+                  <article class="card">
+                     <img src="img/icons/icon-community-clubs.svg" alt="" class="card__icon" width="56" height="56">
+                     <h3 class="card__title">Clubs And Groups</h3>
+                     <p class="card__text">Our membership management software provides full automation of membership renewals and payments</p>
+                  </article>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <section id="feature" class="unlock">
+         <div class="container unlock__inner">
+            <img src="img/unlock.png" alt="Illustration of two people seated facing a large smartphone" class="unlock__image" width="442" height="433">
+            <div class="unlock__content">
+               <h2 class="section-title section-title--left">The unseen of spending three years at Pixelgrade</h2>
+               <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.</p>
+               <a href="#" class="btn btn--primary">Learn More</a>
+            </div>
+         </div>
+      </section>
+
+      <section class="achievements">
+         <div class="container achievements__inner">
+            <div class="achievements__lead">
+               <h2 class="section-title section-title--left">Helping a local <span class="section-title-accent">business reinvent itself</span></h2>
+               <p class="section-text">We reached here with our hard work and dedication</p>
+            </div>
+            <ul class="achievements__stats">
+               <li class="stat">
+                  <img src="img/icons/icon-achievement-members.svg" alt="" class="stat__icon" width="48" height="48">
+                  <p class="stat__number">2,245,341</p>
+                  <p class="stat__label">Members</p>
+               </li>
+               <li class="stat">
+                  <img src="img/icons/icon-achievement-clubs.svg" alt="" class="stat__icon" width="48" height="48">
+                  <p class="stat__number">46,328</p>
+                  <p class="stat__label">Clubs</p>
+               </li>
+               <li class="stat">
+                  <img src="img/icons/icon-achievement-bookings.svg" alt="" class="stat__icon" width="48" height="48">
+                  <p class="stat__number">828,867</p>
+                  <p class="stat__label">Event Bookings</p>
+               </li>
+               <li class="stat">
+                  <img src="img/icons/icon-achievement-payments.svg" alt="" class="stat__icon" width="48" height="48">
+                  <p class="stat__number">1,926,436</p>
+                  <p class="stat__label">Payments</p>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <section class="calender">
+         <div class="container calender__inner">
+            <img src="img/calender.png" alt="Illustration of a person using a digital monthly planner" class="calender__image" width="442" height="434">
+            <div class="calender__content">
+               <h2 class="section-title section-title--left">How to design your site footer like we did</h2>
+               <p class="section-text">Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.</p>
+               <a href="#" class="btn btn--primary">Learn More</a>
+            </div>
+         </div>
+      </section>
+
+      <section id="testimonial" class="customers">
+         <div class="container customers__inner">
+            <img src="img/customer.jpg" alt="Portrait of Tim Smith, CEO of an electronics company" class="customers__photo" width="326" height="326">
+            <div class="customers__content">
+               <blockquote class="customers__quote">Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</blockquote>
+               <p class="customers__author">Tim Smith</p>
+               <p class="customers__role">British Dragon Boat Racing Association</p>
+               <ul class="customers__logos" aria-label="Our partners">
+                  <li><img src="img/logos/customer-1.svg" alt="Partner 1" width="48" height="48"></li>
+                  <li><img src="img/logos/customer-2.svg" alt="Partner 2" width="48" height="48"></li>
+                  <li><img src="img/logos/customer-3.svg" alt="Partner 3" width="48" height="48"></li>
+                  <li><img src="img/logos/customer-4.svg" alt="Partner 4" width="48" height="48"></li>
+                  <li><img src="img/logos/customer-5.svg" alt="Partner 5" width="48" height="48"></li>
+                  <li><img src="img/logos/customer-6.svg" alt="Partner 6" width="48" height="48"></li>
+               </ul>
+               <a href="#" class="link-arrow">Meet all customers <img src="img/icons/icon-arrow-right.svg" alt="" width="24" height="24"></a>
+            </div>
+         </div>
+      </section>
+
+      <section id="faq" class="updates">
+         <div class="container">
+            <h2 class="section-title">Caring is the new marketing</h2>
+            <p class="section-subtitle">The Nexcent blog is the best place to read about the latest membership insights, trends and more. See who's joining the community, read about how our community are increasing their membership income and lot's more.</p>
+            <ul class="updates__cards">
+               <li>
+                  <article class="card">
+                     <img src="img/blog-1.png" alt="A woman analysing data on a laptop" class="card__image" width="368" height="286">
+                     <div class="card__body">
+                        <h3 class="card__title">Creating Streamlined Safeguarding Processes with OneRen</h3>
+                        <a href="#" class="link-arrow">Readmore <img src="img/icons/icon-arrow-right.svg" alt="" width="24" height="24"></a>
+                     </div>
+                  </article>
+               </li>
+               <li>
+                  <article class="card">
+                     <img src="img/blog-2.png" alt="People planning together around a sofa with laptops" class="card__image" width="368" height="286">
+                     <div class="card__body">
+                        <h3 class="card__title">What are your safeguarding responsibilities and how can you manage them?</h3>
+                        <a href="#" class="link-arrow">Readmore <img src="img/icons/icon-arrow-right.svg" alt="" width="24" height="24"></a>
+                     </div>
+                  </article>
+               </li>
+               <li>
+                  <article class="card">
+                     <img src="img/blog-3.png" alt="Two people smiling at a laptop during a group meeting" class="card__image" width="368" height="286">
+                     <div class="card__body">
+                        <h3 class="card__title">Revamping the Membership Model with Triathlon Australia</h3>
+                        <a href="#" class="link-arrow">Readmore <img src="img/icons/icon-arrow-right.svg" alt="" width="24" height="24"></a>
+                     </div>
+                  </article>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <section class="cta">
+         <div class="container cta__inner">
+            <h2 class="cta__title">Pellentesque suscipit fringilla libero eu.</h2>
+            <a href="#" class="btn btn--primary">Get a Demo <img src="img/icons/icon-arrow-right-white.svg" alt="" width="16" height="16"></a>
+         </div>
+      </section>
+   </main>
+
+   <footer class="footer">
+      <div class="container footer__inner">
+         <div class="footer__brand">
+            <a href="#" class="logo" aria-label="Nexcent home">
+               <img src="img/logos/logo.svg" alt="Nexcent" width="154" height="24">
+            </a>
+            <p class="footer__copyright">Copyright © 2020 Nexcent ltd.<br>All rights reserved</p>
+            <ul class="footer__social" aria-label="Social media">
+               <li><a href="#"><img src="img/icons/icon-social-instagram.svg" alt="Instagram" width="32" height="32"></a></li>
+               <li><a href="#"><img src="img/icons/icon-social-dribbble.svg" alt="Dribbble" width="32" height="32"></a></li>
+               <li><a href="#"><img src="img/icons/icon-social-twitter.svg" alt="Twitter" width="32" height="32"></a></li>
+               <li><a href="#"><img src="img/icons/icon-social-youtube.svg" alt="YouTube" width="32" height="32"></a></li>
+            </ul>
+         </div>
+         <nav class="footer__nav" aria-label="Company links">
+            <h3 class="footer__heading">Company</h3>
+            <ul class="footer__links">
+               <li><a href="#">About us</a></li>
+               <li><a href="#">Blog</a></li>
+               <li><a href="#">Contact us</a></li>
+               <li><a href="#">Pricing</a></li>
+               <li><a href="#">Testimonials</a></li>
+            </ul>
+         </nav>
+         <nav class="footer__nav" aria-label="Support links">
+            <h3 class="footer__heading">Support</h3>
+            <ul class="footer__links">
+               <li><a href="#">Help center</a></li>
+               <li><a href="#">Terms of service</a></li>
+               <li><a href="#">Legal</a></li>
+               <li><a href="#">Privacy Policy</a></li>
+               <li><a href="#">Status</a></li>
+            </ul>
+         </nav>
+         <div class="footer__newsletter">
+            <h3 class="footer__heading">Stay up to date</h3>
+            <form class="footer__form" action="#" aria-label="Subscribe to newsletter">
+               <label class="visually-hidden" for="newsletter-email">Your email address</label>
+               <input type="email" id="newsletter-email" name="email" placeholder="Your email address" required>
+               <button type="submit" class="footer__submit" aria-label="Subscribe">
+                  <img src="img/icons/icon-send.svg" alt="" width="24" height="24">
+               </button>
+            </form>
+         </div>
+      </div>
+   </footer>
 </body>
 </html>
