@@ -185,3 +185,44 @@ button {
    white-space: nowrap;
    border: 0;
 }
+
+/* Section: Header — Layout (step 6) */
+
+.header__inner {
+   display: flex;
+   align-items: center;
+   min-height: 84px;
+   max-width: 1440px;
+   padding-inline: 120px;
+   gap: 138px;
+}
+
+.nav__list {
+   display: flex;
+   align-items: center;
+   gap: 50px;
+}
+
+.header__actions {
+   display: flex;
+   align-items: center;
+   gap: 14px;
+}
+
+/* Размеры кнопок header ограничены контекстом:
+   .btn--primary переиспользуется в hero (Register) — геометрия у них своя. */
+.header__actions .btn--ghost {
+   width: 77px;
+   height: 40px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.header__actions .btn--primary {
+   width: 91px;
+   height: 40px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
