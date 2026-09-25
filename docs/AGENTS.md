@@ -181,9 +181,9 @@ AI перед каждым коммитом подсказывает:
 5. `feat: add hero section`
 6. `feat: add clients section`
 7. `feat: add community section`
-8. `feat: add unlock section`
+8. `feat: add case study section`
 9. `feat: add achievements section`
-10. `feat: add calender section`
+10. `feat: add guide section`
 11. `feat: add customers section`
 12. `feat: add community updates section`
 13. `feat: add cta and footer sections`

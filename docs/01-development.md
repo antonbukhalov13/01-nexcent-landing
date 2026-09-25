@@ -28,9 +28,9 @@
 - hero (заголовок, кнопка, иллюстрация);
 - clients (логотипы компаний);
 - community (заголовок + 3 карточки);
-- unlock (текст + иллюстрация);
+- case-study (текст + иллюстрация);
 - achievements (статистика);
-- calender (хронология);
+- guide (текст + иллюстрация);
 - customers (отзыв);
 - community updates (новости, 3 карточки);
 - cta (призыв к действию);
@@ -158,8 +158,8 @@ Design (0:1).
 ### Растровые изображения — img/
 
 - `hero.png` — иллюстрация Hero, экспорт через Figma MCP с scale 2 (782×814);
-- `unlock.png` (442×433), `calender.png` (442×434) — иллюстрации секций;
-- `customer.jpg` (358×358) — фото клиента; в макете контейнер 326×326,
+- `case-study.png` (442×433), `guide.png` (442×434) — иллюстрации секций;
+- `customers.jpg` (358×358) — фото клиента; в макете контейнер 326×326,
   экспорт захватил тень/рамку — при вёрстке размер задаётся CSS;
 - `blog-1.png` … `blog-3.png` (368×286) — изображения карточек
   Community Updates;
@@ -211,9 +211,9 @@ body
     │             + иллюстрация + точки карусели (3)
     ├── clients   h2 + 7 логотипов (client-1..7)
     ├── community h2 + 3 карточки (Membership / National / Clubs)
-    ├── unlock    иллюстрация + h2 + текст + Learn More
+    ├── case-study иллюстрация + h2 + текст + Learn More
     ├── achievements  h2 + сетка статистики 2×2
-    ├── calender  иллюстрация + h2 + текст + Learn More
+    ├── guide     иллюстрация + h2 + текст + Learn More
     ├── customers фото + blockquote-отзыв + 6 логотипов
     │             + «Meet all customers»
     ├── updates   h2 + 3 карточки блога (blog-1..3)
@@ -276,8 +276,9 @@ icon-arrow-right-white.svg). Стилей пока нет: серый фон к�
   L_Grey / Grey_Blue / Silver / White (значения из раздела 1);
 - типографика Inter: заранее объявлены размеры и линейки h1–h4 и body 1–4
   (в px), веса 400/500/600;
-- layout: `--container-width: 1152px`, `--container-gutter: 24px` (поля
-  144px на 1440 задаются через центрирование контейнера);
+- layout: `--container-width: 1200px`, `--container-gutter: 24px`
+  (контент 1152px, поля 144px на 1440 задаются через центрирование
+  контейнера);
 - шкала отступов по сетке 8pt (`--space-1…16`);
 - радиусы (`--radius-sm/md/lg/full`);
 - тени `--shadow-1…5` (цвет #ABBED1, интерпретация «2px 60%» → сдвиг 1–8px,
@@ -298,7 +299,8 @@ icon-arrow-right-white.svg). Стилей пока нет: серый фон к�
 
 ### Контейнер и утилиты
 
-- `.container` — `max-width: 1152px`, центрируется, `padding-inline: 24px`;
+- `.container` — `max-width: 1200px`, центрируется, `padding-inline: 24px`;
+  полезная ширина контента 1152px;
 - `.visually-hidden` — скрытие видимого, но доступного элемента; кроме
   устаревшего `clip` добавлен современный `clip-path: inset(50%)`.
 
@@ -311,3 +313,66 @@ icon-arrow-right-white.svg). Стилей пока нет: серый фон к�
 
 Зафиксировано `style: add base styles and variables` (css/style.css,
 index.html).
+
+## 6. Построить layout
+
+Секции добавляются по одной, каждая — отдельным блоком в `css/style.css`
+с маркером `/* Section: <name> — Layout (step 6) */`. На этом шаге только
+размеры, отступы и позиционирование; цвета, типографика и радиусы — на
+следующем шаге. Значения берутся из Figma по каждому элементу.
+
+### Переименование секций и ассетов
+
+- `unlock` → `case-study`: секция разбирает работу с клиентом (Pixelgrade),
+  имя взято по содержимому; `id="feature"` не тронут — он привязан к навигации;
+- `calender` → `guide`: секция даёт практический совет, а не календарь;
+- `img/unlock.png` → `img/case-study.png`, `img/calender.png` →
+  `img/guide.png`, `img/customer.jpg` → `img/customers.jpg` — имена файлов
+  совпадают с именами секций;
+- тем же способом переименованы эталонные выгрузки в
+  `docs/reference-images/sections/`;
+- обновлены ссылки в `index.html` и карта коммитов в `docs/AGENTS.md`.
+
+### Общий контейнер
+
+- `--container-width` переведён с 1152px на 1200px: это ширина бокса
+  `.container` вместе с полями 24px, поэтому контент остался 1152px, а поля
+  144px на 1440 теперь считаются автоматически;
+- hero больше не переопределяет контейнер (было `max-width: 1440px;
+  padding-inline: 144px` в `.hero__inner`) — значения выведены из переменных;
+- header — единственное исключение: контент в макете 1200px, поэтому
+  `.header__inner` переопределяет и ширину, и поля.
+
+### Header — контейнер
+
+- контент 1200×40, поля по вертикали 22px, по горизонтали 120px;
+- `max-width: 1440px`, `padding-block: 22px`,
+  `padding-inline: clamp(24px, 8.34vw, 120px)` — clamp нужен, чтобы
+  боковые поля не схлопывались на узких экранах;
+- высота 84px (22 + 40 + 22) больше не задаётся `min-height`: её дают
+  padding и высота кнопок 40px.
+
+### Hero — layout
+
+- секция 1440×599: `padding-top: 96px`, контент 407px, отступ до точек 70px,
+  точки 10px, `padding-bottom: 16px`; `margin-bottom: 40px`
+  (`--space-10`);
+- `.hero__inner` — flex, `align-items: center`, `gap: 104px`; текстовая
+  колонка 657px, картинка 391×407 с `flex-shrink: 0`;
+- отступы внутри: h1 → p 16px, p → Register 32px, Register 128×52
+  (`.hero__content .btn--primary`);
+- точки 46×10: три квадрата 10×10 с `gap: 8px`, первый активный.
+
+### Clients — layout
+
+- высота секции 190px, отступ снизу 40px (`--space-10`);
+- h2 → подзаголовок 8px, подзаголовок → строка логотипов 16px;
+- строка логотипов: семь логотипов 48×48, `gap: 136px`
+  (7×48 + 6×136 = 1152px), `padding-block: 25px` (48 + 50 = 98px);
+- высота 190 складывается как 98 + 8 + 16 + 68, где 68px — это заголовок
+  с подзаголовком.
+
+### Коммит
+
+`feat: add clients layout` — index.html, css/style.css, docs/AGENTS.md,
+docs/01-development.md, переименованные изображения.

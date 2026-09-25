@@ -79,7 +79,7 @@
    --lh-body-4: 16px;
 
    /* Layout */
-   --container-width: 1152px;
+   --container-width: 1200px;
    --container-gutter: 24px;
 
    /* Spacing scale (8pt) */
@@ -191,9 +191,9 @@ button {
 .header__inner {
    display: flex;
    align-items: center;
-   min-height: 84px;
    max-width: 1440px;
-   padding-inline: 120px;
+   padding-block: 22px;
+   padding-inline: clamp(24px, 8.34vw, 120px);
    gap: 138px;
 }
 
@@ -232,15 +232,13 @@ button {
 .hero {
    padding-top: 96px;
    padding-bottom: 16px;
-   margin-bottom: 40px;
+   margin-bottom: var(--space-10);
 }
 
 .hero__inner {
    display: flex;
    align-items: center;
    gap: 104px;
-   max-width: 1440px;
-   padding-inline: 144px;
 }
 
 .hero__content {
@@ -282,4 +280,25 @@ button {
 .hero__dot {
    width: 10px;
    height: 10px;
+}
+
+/* Section: Clients — Layout (step 6) */
+
+.clients {
+   margin-bottom: var(--space-10);
+}
+
+.clients .section-title {
+   margin-bottom: 8px;
+}
+
+.clients .section-subtitle {
+   margin-bottom: 16px;
+}
+
+.clients__list {
+   display: flex;
+   align-items: center;
+   gap: 136px;
+   padding-block: 25px;
 }
