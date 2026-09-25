@@ -226,3 +226,60 @@ button {
    align-items: center;
    justify-content: center;
 }
+
+/* Section: Hero — Layout (step 6) */
+
+.hero {
+   padding-top: 96px;
+   padding-bottom: 16px;
+   margin-bottom: 40px;
+}
+
+.hero__inner {
+   display: flex;
+   align-items: center;
+   gap: 104px;
+   max-width: 1440px;
+   padding-inline: 144px;
+}
+
+.hero__content {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: 657px;
+}
+
+.hero__title {
+   margin-bottom: 16px;
+}
+
+.hero__text {
+   margin-bottom: 32px;
+}
+
+.hero__content .btn--primary {
+   width: 128px;
+   height: 52px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.hero__image {
+   width: 391px;
+   height: 407px;
+   flex-shrink: 0;
+}
+
+.hero__dots {
+   display: flex;
+   gap: 8px;
+   justify-content: center;
+   margin-top: 70px;
+}
+
+.hero__dot {
+   width: 10px;
+   height: 10px;
+}
