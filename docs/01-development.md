@@ -15,8 +15,24 @@
 в `mobile/mobile.png`. Значения (цвета, размеры, отступы, координаты) при
 вёрстке определяется по этим кадрам.
 
+2026-10-01 макет дополнительно выгружен в виде структурированной
+спецификации `docs/figma/`: геометрия всех 11 секций с координатами
+фреймов, палитра, шкала типографики, матрица кнопок, тени и правила
+контейнера со страницы Style Guide. Эти значения точнее картинок
+и используются как основа при вёрстке.
+
+Квота Figma MCP на плане `starter` исчерпана, поэтому часть свойств
+через MCP не снята: радиусы, тени, внутренние отступы кнопок,
+состояния кнопок, структура футера. Эти значения закрыты вручную
+по эталону, а реестр — что закрыто, что осталось открытым и какие
+приняты решения — ведётся в `docs/figma/gaps.md`. Перед вёрсткой
+секции этот файл нужно проверять: неподтверждённые значения
+нельзя выдавать за данные макета.
+
 ### Источник
 
+- Style Guide: https://www.figma.com/design/l9442HdlZ9xWUYbsxcLbuW/01-nexcent-landing?node-id=1-2
+- Design (canvas): https://www.figma.com/design/l9442HdlZ9xWUYbsxcLbuW/01-nexcent-landing?node-id=0-1
 - Основной фрейм — Landing Page (5:573), desktop 1440×4376, одностраничный
   лендинг. Он является эталоном реализации.
 - Фреймы Style Guide / превью существуют в файле, но эталоном служит Landing
@@ -249,7 +265,7 @@ footer            бренд + copyright + соцсети | Company ×5 | Suppor
 - copyright из двух строк: `Copyright © 2020 Nexcent ltd.` + `All rights
   reserved`;
 - Company: About us, Blog, Contact us, Pricing, Testimonials;
-- Support: Help center, Terms of service, Legal, Privacy Policy, Status;
+- Support: Help center, Terms of service, Legal, Privacy policy, Status;
 - социальные иконки белые — видимы после стилизации футера (тёмный фон).
 
 ### Коммит
