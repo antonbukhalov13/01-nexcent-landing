@@ -186,6 +186,18 @@ button {
    border: 0;
 }
 
+/* Заголовок секции по центру по умолчанию. Секции с выравниванием
+   по левому краю (case-study, guide, customers) помечают h2
+   модификатором --left, он должен идти после базового правила. */
+.section-title,
+.section-subtitle {
+   text-align: center;
+}
+
+.section-title--left {
+   text-align: left;
+}
+
 /* Section: Header — Layout (step 6) */
 
 .header__inner {
@@ -301,4 +313,68 @@ button {
    align-items: center;
    gap: 136px;
    padding-block: 25px;
+}
+
+/* Section: Community — Layout (step 6) */
+
+.community {
+   margin-bottom: var(--space-10);
+}
+
+.community .section-title {
+   margin-bottom: var(--space-2);
+   /* Бокс заголовка в макете 542×88 — ограничен по ширине, поэтому
+      строка переносится после «community». Без ограничения он занял бы
+      всю ширину контейнера и остался однострочным даже с Headline 2.
+      Контейнер и страница центрированы от одной оси, поэтому
+      margin-inline: auto даёт те же поля 449px, что и в макете. */
+   max-width: 542px;
+   margin-inline: auto;
+}
+
+.community .section-subtitle {
+   margin-bottom: var(--space-4);
+}
+
+/* Ширина строки: 3 × 299 + 2 × 127.5 = 1152px — ровно контент макета.
+   Карточки разной высоты центрируются по вертикали, а высоты 260 / 280 /
+   260 получаются сами из числа строк текста, поэтому фиксировать их
+   не нужно: фиксированная высота обрезала бы текст при смене шрифта. */
+.community__cards {
+   display: flex;
+   align-items: center;
+   gap: 127.5px;
+}
+
+.community__cards > li {
+   width: 299px;
+   flex-shrink: 0;
+}
+
+/* Поля 24 / 16 дают Member шириной 267px (299 − 16 − 16). */
+.card {
+   padding: var(--space-6) var(--space-4);
+   text-align: center;
+}
+
+/* Ассет экспортирован из фрейма Figma 65×56 вместе с лишним
+   Rectangle 157, поэтому размеры натуральные и object-fit не нужен.
+   Центрируется именно фрейм: (267 − 65) / 2 = 101 — как в макете. */
+.card__icon {
+   width: 65px;
+   height: 56px;
+   margin-inline: auto;
+}
+
+/* Member = 56 (иконка) + 16 (отступ) + 72 (две строки) = 144px. */
+.card__title {
+   margin-top: var(--space-4);
+}
+
+/* Member заканчивается на 168px, текст начинается на 176px — зазор 8px.
+   Высота карточки складывается как 24 + 144 + 8 + текст + 24:
+   260 при трёх строках и 280 при четырёх.
+   Поля по бокам 8px, чтобы текст был шириной 251px (299 − 16 − 16 − 16). */
+.card__text {
+   margin: var(--space-2) var(--space-2) 0;
 }
