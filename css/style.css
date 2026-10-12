@@ -204,7 +204,7 @@ button {
 .link-arrow {
    display: inline-flex;
    align-items: center;
-   gap: var(--space-8);
+   gap: var(--space-2);
 }
 
 /* Section: Header — Layout (step 6) */
@@ -360,8 +360,14 @@ button {
    flex-shrink: 0;
 }
 
+/* .card переиспользуется карточками community и updates, но геометрия
+   у них разная: community — поля 24/16 и подложка Member, updates —
+   картинка во всю ширину и панель контента поверх. Поэтому правила сужены
+   по секциям, а общий .card остаётся хуком. Переименование в
+   .community__card / .updates__card — этап 16 «очистка кода». */
+
 /* Поля 24 / 16 дают Member шириной 267px (299 − 16 − 16). */
-.card {
+.community .card {
    padding: var(--space-6) var(--space-4);
    text-align: center;
 }
@@ -369,14 +375,14 @@ button {
 /* Ассет экспортирован из фрейма Figma 65×56 вместе с лишним
    Rectangle 157, поэтому размеры натуральные и object-fit не нужен.
    Центрируется именно фрейм: (267 − 65) / 2 = 101 — как в макете. */
-.card__icon {
+.community .card__icon {
    width: 65px;
    height: 56px;
    margin-inline: auto;
 }
 
 /* Member = 56 (иконка) + 16 (отступ) + 72 (две строки) = 144px. */
-.card__title {
+.community .card__title {
    margin-top: var(--space-4);
 }
 
@@ -384,7 +390,7 @@ button {
    Высота карточки складывается как 24 + 144 + 8 + текст + 24:
    260 при трёх строках и 280 при четырёх.
    Поля по бокам 8px, чтобы текст был шириной 251px (299 − 16 − 16 − 16). */
-.card__text {
+.community .card__text {
    margin: var(--space-2) var(--space-2) 0;
 }
 
@@ -570,4 +576,68 @@ button {
    край надёжнее — зазор никогда не выталкивает ссылку за контейнер. */
 .customers__content .link-arrow {
    justify-self: end;
+}
+
+/* Section: Updates — Layout (step 6) */
+
+/* Высота секции складывается из контента: 124 (текст) + 16 + 366 (карточки),
+   поэтому padding-block здесь нет. Зазор до cta — 94 (решение пользователя:
+   в макете 94.601, округлено; единственный зазор в макете больше 48). */
+.updates {
+   margin-bottom: 94px;
+}
+
+/* h2 → подзаголовок 8px (44 + 8 = 52). */
+.updates .section-title {
+   margin-bottom: var(--space-2);
+}
+
+/* 628 — ширина слоя подзаголовка: текст ломается на три строки. Ограничение
+   нужно уже на этапе layout, иначе с приходом типографики перенос уедет —
+   как в community (542) и achievements (408). Подзаголовок → карточки 16px. */
+.updates .section-subtitle {
+   max-width: 628px;
+   margin-inline: auto;
+   margin-bottom: var(--space-4);
+}
+
+/* 3 × 368 + 2 × 24 = 1152. */
+.updates__cards {
+   display: flex;
+   gap: var(--space-6);
+}
+
+.updates__cards > li {
+   width: 368px;
+   flex-shrink: 0;
+}
+
+/* Карточка: картинка 368×286 во всю ширину, поверх неё панель контента
+   317×176 (x = 25.5 → margin-inline: auto). Панель начинается на y = 190,
+   то есть накрывает картинку на 96px (286 − 190); высота карточки выходит
+   сама: 286 − 96 + 176 = 366. Фон панели — этап 7, здесь чистый layout. */
+.updates .card {
+   text-align: center;
+}
+
+.updates .card__image {
+   width: 368px;
+}
+
+.updates .card__body {
+   width: 317px;
+   margin: -96px auto 0;
+   padding: var(--space-4);
+}
+
+/* Заголовок → «Readmore» 16px (84 + 16 = 100 → 116). */
+.updates .card__title {
+   margin-bottom: var(--space-4);
+}
+
+/* Строка ссылки в макете 44px (`Frame 13`): текст 28 центрируется в ней
+   с полями по 8px. Без этих 8px панель контента вышла бы 160, а карточка
+   350 вместо 366 — поэтому отступ нужен уже на этапе layout. */
+.updates .link-arrow {
+   padding-block: var(--space-2);
 }
