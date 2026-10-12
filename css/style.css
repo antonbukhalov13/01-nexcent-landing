@@ -659,3 +659,77 @@ button {
    height: 52px;
    gap: var(--space-2);
 }
+
+/* Section: Footer — Layout (step 6) */
+
+.footer {
+   padding-block: var(--space-16);
+}
+
+/* 1110 = 1440 − 2×165 — та же ширина контента, что в updates.
+   1158 = 1110 + 2×24 (гуттер .container). */
+.footer__inner {
+   max-width: 1158px;
+   display: flex;
+   align-items: flex-start;
+   gap: 125px;
+}
+
+.footer__brand {
+   flex: none;
+   width: 350px;
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-10);
+}
+
+.footer__social {
+   display: flex;
+   gap: var(--space-4);
+}
+
+.footer__columns {
+   display: flex;
+   gap: 30px;
+}
+
+.footer__nav {
+   flex: none;
+   width: 160px;
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-6);
+}
+
+.footer__links {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-3);
+}
+
+.footer__newsletter {
+   flex: none;
+   width: 255px;
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-6);
+}
+
+.footer__form {
+   position: relative;
+   width: 100%;
+   height: 40px;
+}
+
+.footer__form input {
+   width: 100%;
+   height: 100%;
+   padding-left: var(--space-3);
+}
+
+.footer__submit {
+   position: absolute;
+   right: var(--space-3);
+   top: 50%;
+   transform: translateY(-50%);
+}
