@@ -378,3 +378,48 @@ button {
 .card__text {
    margin: var(--space-2) var(--space-2) 0;
 }
+
+/* Section: Case study — Layout (step 6) */
+
+.case-study {
+   margin-bottom: var(--space-12);
+}
+
+/* Высота строки задаётся картинкой (433), текст выравнивается по центру:
+   (433 − 268) / 2 = 82.5. */
+.case-study__inner {
+   display: flex;
+   align-items: center;
+}
+
+.case-study__image {
+   width: 442px;
+   height: 433px;
+   flex-shrink: 0;
+}
+
+/* Зазор картинка → текст 49px. Оставлен литералом: не из 8pt-шкалы, но
+   структурные горизонтальные зазоры в проекте не округляются (104, 136,
+   127.5). Задан margin, а не gap — родитель flex, схлопывания нет.
+   Ширина 601: в макете фрейм 661, но его содержимое 601, а справа остаётся
+   поле 60px. Контент внутри — normal flow, поэтому h2 и p займут все 601. */
+.case-study__content {
+   width: 601px;
+   margin-left: 49px;
+}
+
+.case-study .section-title {
+   margin-bottom: var(--space-4);
+}
+
+.case-study .section-text {
+   margin-bottom: var(--space-8);
+}
+
+.case-study__content .btn--primary {
+   width: 151px;
+   height: 52px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
