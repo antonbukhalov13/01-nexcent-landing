@@ -198,6 +198,15 @@ button {
    text-align: left;
 }
 
+/* Ссылка со стрелкой (customers «Meet all customers», updates «Readmore»):
+   текст и стрелка 24×24 в одну строку. Общий элемент — используется в двух
+   секциях, поэтому живёт среди утилит, а не внутри секции. */
+.link-arrow {
+   display: inline-flex;
+   align-items: center;
+   gap: var(--space-8);
+}
+
 /* Section: Header — Layout (step 6) */
 
 .header__inner {
@@ -492,4 +501,73 @@ button {
 .stat__label {
    grid-column: 2;
    grid-row: 2;
+}
+
+/* Section: Customers — Layout (step 6) */
+
+.customers {
+   /* 390 = 32 + 326 (фото) + 32: высоту секции добирает padding, а не
+      контент (текст 324 ниже фото). */
+   padding-block: var(--space-8);
+   margin-bottom: var(--space-12);
+}
+
+.customers__inner {
+   display: flex;
+   align-items: center;
+}
+
+/* Ассет customers.jpg натурально 358×358 — показывается в размере макета
+   326×326; height: auto сохраняет пропорцию 1:1. */
+.customers__photo {
+   width: 326px;
+   flex-shrink: 0;
+}
+
+/* Ширина 748: 144 + 326 + 78 + 748 = 1296 (правый край контейнера).
+   Промежуток фото → текст 78 — литерал, как 49, 136, 127.5.
+   Grid без обёрток: цитата, имя и должность занимают строку целиком
+   (grid-column: 1 / -1), а логотипы и ссылка встают в общий нижний ряд —
+   в HTML это прямые соседи. */
+.customers__content {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   column-gap: var(--space-8);
+   align-items: center;
+   width: 748px;
+   margin-left: 78px;
+}
+
+.customers__quote,
+.customers__author,
+.customers__role {
+   grid-column: 1 / -1;
+}
+
+/* Цитата → имя 16px (168 → 184). */
+.customers__quote {
+   margin-bottom: var(--space-4);
+}
+
+/* Имя → должность 8px (28 + 8 = 36). */
+.customers__author {
+   margin-bottom: var(--space-2);
+}
+
+/* Должность → нижний ряд 32px (244 + 32 = 276). */
+.customers__role {
+   margin-bottom: var(--space-8);
+}
+
+/* 6 × 48 + 5 × 41 = 493; зазор 41 не из 8pt-шкалы — литерал. */
+.customers__logos {
+   display: flex;
+   gap: 41px;
+}
+
+/* Ссылку прижимаем к правому краю ряда: 493 + 32 + 223 = 748, если ссылка
+   223. Её содержимое (текст + 32 + стрелка) шире 223, поэтому прижатый
+   край надёжнее — зазор никогда не выталкивает ссылку за контейнер. */
+.customers__content .link-arrow {
+   justify-self: end;
 }
