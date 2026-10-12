@@ -207,6 +207,14 @@ button {
    gap: var(--space-2);
 }
 
+/* Shared layout: Button — step 6. Общие объявления для кнопок; ширину и
+   высоту задаёт контекст (.header__actions, .hero__content, ...). */
+.btn {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+}
+
 /* Section: Header — Layout (step 6) */
 
 .header__inner {
@@ -235,17 +243,11 @@ button {
 .header__actions .btn--ghost {
    width: 77px;
    height: 40px;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
 }
 
 .header__actions .btn--primary {
    width: 91px;
    height: 40px;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
 }
 
 /* Section: Hero — Layout (step 6) */
@@ -280,9 +282,6 @@ button {
 .hero__content .btn--primary {
    width: 128px;
    height: 52px;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
 }
 
 .hero__image {
@@ -440,9 +439,6 @@ button {
 .split__content .btn--primary {
    width: 151px;
    height: 52px;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
 }
 
 /* Section: Achievements — Layout (step 6) */
@@ -640,4 +636,26 @@ button {
    350 вместо 366 — поэтому отступ нужен уже на этапе layout. */
 .updates .link-arrow {
    padding-block: var(--space-2);
+}
+
+/* Section: CTA — Layout (step 6) */
+
+.cta {
+   padding-block: var(--space-8);
+}
+
+.cta__inner {
+   text-align: center;
+}
+
+.cta__title {
+   max-width: 887px;
+   margin-inline: auto;
+   margin-bottom: var(--space-8);
+}
+
+.cta__inner .btn--primary {
+   width: 178px;
+   height: 52px;
+   gap: var(--space-2);
 }
