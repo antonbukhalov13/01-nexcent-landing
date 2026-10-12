@@ -379,44 +379,50 @@ button {
    margin: var(--space-2) var(--space-2) 0;
 }
 
-/* Section: Case study — Layout (step 6) */
+/* Shared layout: Split — image + text (case-study, guide) — step 6
 
-.case-study {
+   Секции case-study (`14:1043`) и guide (`17:677`) в макете устроены
+   одинаково: картинка слева, текстовый блок 601 справа. Один компонент
+   на обе, чтобы не дублировать правила. */
+
+.split {
    margin-bottom: var(--space-12);
 }
 
-/* Высота строки задаётся картинкой (433), текст выравнивается по центру:
-   (433 − 268) / 2 = 82.5. */
-.case-study__inner {
+/* Высота строки задаётся картинкой, текст выравнивается по центру:
+   (433 − 308) / 2 ≈ 62.5 в guide, (433 − 268) / 2 = 82.5 в case-study. */
+.split__inner {
    display: flex;
    align-items: center;
 }
 
-.case-study__image {
+/* Ширина фиксирована, height — натуральный (auto): пропорция ассета
+   сохраняется — 442×433 у case-study.png, 442×434 у guide.png. */
+.split__image {
    width: 442px;
-   height: 433px;
    flex-shrink: 0;
 }
 
-/* Зазор картинка → текст 49px. Оставлен литералом: не из 8pt-шкалы, но
-   структурные горизонтальные зазоры в проекте не округляются (104, 136,
-   127.5). Задан margin, а не gap — родитель flex, схлопывания нет.
-   Ширина 601: в макете фрейм 661, но его содержимое 601, а справа остаётся
-   поле 60px. Контент внутри — normal flow, поэтому h2 и p займут все 601. */
-.case-study__content {
+/* Зазор картинка → текст 49px (144 + 442 + 49 = 635). Оставлен литералом:
+   не из 8pt-шкалы, но структурные горизонтальные зазоры в проекте не
+   округляются (104, 136, 127.5). Задан margin, а не gap — родитель flex,
+   схлопывания нет. Ширина 601: в макете фрейм 661, но его содержимое 601,
+   а справа остаётся поле 60px. Контент внутри — normal flow, поэтому h2 и
+   p займут все 601. */
+.split__content {
    width: 601px;
    margin-left: 49px;
 }
 
-.case-study .section-title {
+.split .section-title {
    margin-bottom: var(--space-4);
 }
 
-.case-study .section-text {
+.split .section-text {
    margin-bottom: var(--space-8);
 }
 
-.case-study__content .btn--primary {
+.split__content .btn--primary {
    width: 151px;
    height: 52px;
    display: inline-flex;
